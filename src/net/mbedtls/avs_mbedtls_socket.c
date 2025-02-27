@@ -918,6 +918,9 @@ configure_ssl(ssl_socket_t *socket,
         return avs_errno(AVS_ENOTSUP);
     }
 
+    mbedtls_ssl_conf_tls13_enable_signal_new_session_tickets(&socket->config, MBEDTLS_SSL_TLS1_3_SIGNAL_NEW_SESSION_TICKETS_ENABLED);
+
+
 #    ifdef AVS_COMMONS_NET_WITH_MBEDTLS_LOGS
     // most verbose logs available
     mbedtls_debug_set_threshold(4);
